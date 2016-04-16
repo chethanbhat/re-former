@@ -1,4 +1,4 @@
-<h1>Users Sign Up Page </h1>
+<h1>Edit User Details </h1>
 
 <!-- <form action="/users" method="post" accept-charset="UTF-8">
 
@@ -32,6 +32,12 @@
 
 <% end %> -->
 
+
+<h3>Hello, <%= User.find(params[:id]).username %> </h3>
+<h3>Email:<%= User.find(params[:id]).email %> </h3>
+
+
+
 <%= form_for @user do |f| %>
 
   <% if @user.errors.full_messages.any? %>
@@ -41,15 +47,12 @@
   <% end %>
 
 
-    <%= f.label :username %>
-  <%= f.text_field :username,placeholder: 'Enter your Username' %>
-
   <%= f.label :email %>
   <%= f.email_field :email,placeholder: 'someone@example.com ' %>
 
   <%= f.label :password %>
   <%= f.password_field :password,placeholder: '****** ' %>
 
-  <%= f.submit ('Sign-Up') %>
+  <%= f.submit ('Edit Profile') %>
 
 <% end %>
