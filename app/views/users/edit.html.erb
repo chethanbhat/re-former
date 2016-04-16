@@ -35,7 +35,7 @@
 
 <h3>Hello, <%= User.find(params[:id]).username %> </h3>
 <h3>Email:<%= User.find(params[:id]).email %> </h3>
-
+<h3>Password:<%= User.find(params[:id]).password %> </h3>
 
 
 <%= form_for @user do |f| %>
@@ -56,3 +56,9 @@
   <%= f.submit ('Edit Profile') %>
 
 <% end %>
+
+<%= link_to "Delete Profile", @user, method: :delete, data: {confirm: "Are You sure?"} %>
+
+</br>
+
+<%= link_to "Back to Index Page", '/users' %>

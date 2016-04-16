@@ -1,0 +1,10 @@
+<h1>Welcome to <%= @user.username %>'s profile </h1>
+
+<p>Username: <%= @user.username %> </p>
+
+<p>Email: <%= @user.email %> </p>
+
+<p>Password: <%= @user.password %> </p>
+
+<%= link_to "Edit Profile", {:action => 'edit', :id => @user.id} %>
+<%= link_to "Back to Index Page", '/users' %>

@@ -1,0 +1,14 @@
+<h1> Hello, welcome to the index page ! <h1>
+
+<h2>Following are the users of the App </h2>
+
+<%  @users.each do |u| %>
+
+  <ul>
+  <li>Username: <%= u.username %></li>
+  <li>Email: <%= u.email %></li>
+  </ul>
+
+  <%= link_to "View Profile", {:action => 'show', :id => u.id} %>
+
+  <% end %>
