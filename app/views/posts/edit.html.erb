@@ -1,0 +1,22 @@
+<h1>Welcome to myapp</h1>
+<h2>Edit your Posts here </h2>
+
+
+<%= form_for [:user, @post], url: {action: 'update'} do |f| %>
+
+  <% if @post.errors.full_messages.any? %>
+  <% @post.errors.full_messages.each do |error_message| %>
+  <%= error_message %> <br /><br />
+  <% end %>
+  <% end %>
+
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit ('Save') %>
+
+<% end %>

@@ -1,0 +1,12 @@
+<h1> Welcome to the all users posts timeline </h1>
+
+<%  @posts.each do |p| %>
+
+  <ul>
+  <li>Title: <%= p.title %></li>
+  <li>Body: <%= p.body %></li>
+   <li>Author: <%= User.find(p.user_id).username %></li>
+   <%= link_to "View Profile", user_path(p.user_id) %>
+  </ul>
+
+  <% end %>

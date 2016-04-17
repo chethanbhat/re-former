@@ -1,13 +1,18 @@
-<h1> Hello, welcome to the index page ! <h1>
+<h1> Hello, welcome to the index page ! </h1>
 
-<h2>Timeline of Posts </h2>
+<%= link_to "New Post", new_user_post_path %>
+
+<h2><%= User.find(params[:user_id]).username %>'s' Posts Feed Timeline </h2>
 
 <%  @posts.each do |p| %>
 
   <ul>
   <li>Title: <%= p.title %></li>
   <li>Body: <%= p.body %></li>
+  <li>Author: <%= User.find(p.user_id).username %></li>
   </ul>
 
+<%= link_to "Edit Post", {:action => 'edit', :id => p.id} %>
+<%= link_to "Delete Post", user_post_path(@user, p.id) , method: :delete %>
 
   <% end %>

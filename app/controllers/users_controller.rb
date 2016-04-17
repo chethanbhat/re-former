@@ -25,7 +25,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-          redirect_to  users_path
+          redirect_to  user_path(@user.id)
         else
           render :new
         end
@@ -51,7 +51,10 @@ class UsersController < ApplicationController
     def destroy
       @user = User.find(params[:id])
 
+      @posts = @user.posts
+
       @user.destroy
+      @posts.destroy_all
 
       redirect_to  users_path
     end

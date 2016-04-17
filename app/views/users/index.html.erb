@@ -7,8 +7,14 @@
   <ul>
   <li>Username: <%= u.username %></li>
   <li>Email: <%= u.email %></li>
-  </ul>
-
   <%= link_to "View Profile", {:action => 'show', :id => u.id} %>
+  <%= link_to "Visit User's Posts", user_posts_path(u.id) %>
+  </ul>
+  <br>
+  <br>
+
 
   <% end %>
+
+
+<%= link_to "Visit Posts Timeline", '/timeline' %>

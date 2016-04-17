@@ -1,0 +1,14 @@
+<h1> Hello, welcome to the index page ! <h1>
+
+<h2>Posts Feed Timeline </h2>
+
+<%  @posts.each do |p| %>
+
+  <ul>
+  <li>Title: <%= p.title %></li>
+  <li>Body: <%= p.body %></li>
+  <li>Author: <%= User.find(p.user_id).username %></li>
+  </ul>
+
+
+  <% end %>
