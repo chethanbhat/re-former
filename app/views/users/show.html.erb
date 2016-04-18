@@ -10,6 +10,9 @@
 <%= link_to "Back to Index Page", '/users' %>
 <br>
 <br>
+<%= link_to "Visit User's Posts", user_posts_path(@user.id) %>
+<br>
+<br>
 <%= link_to "New Post", new_user_post_path(@user.id) %>
 <br>
 <br>
