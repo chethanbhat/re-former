@@ -10,5 +10,22 @@
   <li>Author: <%= User.find(p.user_id).username %></li>
   </ul>
 
+    <p>Comments</p>
+
+    <%= form_for new_user_post_comment_path do |c| %>
+
+      <% if @comment.errors.full_messages.any? %>
+      <% @comment.errors.full_messages.each do |error_message| %>
+      <%= error_message %> <br /><br />
+      <% end %>
+      <% end %>
+
+
+      <%= c.label :message %>
+      <%= c.text_field :message %>
+
+      <%= f.submit ('Comment!') %>
+
+    <% end %>
 
   <% end %>
