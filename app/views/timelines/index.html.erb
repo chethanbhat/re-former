@@ -2,11 +2,9 @@
 
 <%  @posts.each do |p| %>
 
-  <ul>
-  <li>Title: <%= p.title %></li>
-  <li>Body: <%= p.body %></li>
-   <li>Author: <%= User.find(p.user_id).username %></li>
-   <%= link_to "View Profile", user_path(p.user_id) %>
-  </ul>
+  <h1>Title: <%= p.title %></h1>
+  <h3>Body: <%= p.body %></h3>
+   <p>Author: <%= link_to User.find(p.user_id).username, user_path(p.user_id) %></p>
+
 
   <% end %>

@@ -9,5 +9,8 @@
 <%= link_to "Edit Profile", {:action => 'edit', :id => @user.id} %>
 <%= link_to "Back to Index Page", '/users' %>
 <br>
-
+<br>
+<%= link_to "New Post", new_user_post_path(@user.id) %>
+<br>
+<br>
 <%= link_to "Back to Timeline", '/timeline' %>
