@@ -2,30 +2,20 @@
 
 <h2>Posts Feed Timeline </h2>
 
-<%  @posts.each do |p| %>
-
   <ul>
-  <li>Title: <%= p.title %></li>
-  <li>Body: <%= p.body %></li>
-  <li>Author: <%= User.find(p.user_id).username %></li>
+  <li>Title: <%= @post.title %></li>
+  <li>Body: <%= @post.body %></li>
+  <li>Author: <%= User.find(@post.user_id).username %></li>
   </ul>
 
-    <p>Comments</p>
-
-    <%= form_for new_user_post_comment_path do |c| %>
-
-      <% if @comment.errors.full_messages.any? %>
-      <% @comment.errors.full_messages.each do |error_message| %>
-      <%= error_message %> <br /><br />
-      <% end %>
-      <% end %>
+<p>Comments</p>
 
 
-      <%= c.label :message %>
-      <%= c.text_field :message %>
+<%= form_for [@user, @post ,@comment] do |c| %>
 
-      <%= f.submit ('Comment!') %>
+<%= c.label :message %>
+<%= c.text_field :message %>
 
-    <% end %>
+<%= c.submit ('Comment') %>
 
-  <% end %>
+<% end %>
